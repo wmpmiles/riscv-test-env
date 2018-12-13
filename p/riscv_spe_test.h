@@ -126,9 +126,6 @@ trap_vector:                                                            \
         beq t5, t6, write_tohost;                                       \
         li t6, 0x10; \
         bne t5, t6, 1f; \
-        csrr t5, mepc; \
-        addi t5, t5, 0x04; \
-        csrw mepc, t5; \
         mret; \
         /* if an mtvec_handler is defined, jump to it */                \
   1:    la t5, mtvec_handler;                                           \
