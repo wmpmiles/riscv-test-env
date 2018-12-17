@@ -100,7 +100,10 @@
 
 #define EXTRA_TVEC_USER
 #define EXTRA_TVEC_MACHINE
-#define EXTRA_INIT
+#define EXTRA_INIT                                                      \
+  li t0, ~0;                                                            \
+  csrw 0x7c0, t0                                                        
+
 #define EXTRA_INIT_TIMER
 
 #define INTERRUPT_HANDLER j other_exception /* No interrupts should occur */
